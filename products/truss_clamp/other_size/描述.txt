@@ -1,0 +1,5 @@
+30-50mm-clamp: 30-50mm clamp,60kg,pack of 80pcs
+
+mega-clamp: 25-50mm clamp,273kg, pack of 50pcs
+
+mini-360-1.5: 40mm clamp, 100kg,pack of 80pcs
