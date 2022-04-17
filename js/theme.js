@@ -11,9 +11,9 @@ jQuery(function($) {
     $('a.smooth-scroll').click(function(e) {
         setActive($(this).parent('li'));
 
-        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
             var target = $(this.hash);
-            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
             if (target.length) {
                 scrolling = true;
 
@@ -37,19 +37,18 @@ jQuery(function($) {
             closestDistance = Number.MAX_VALUE,
             closestId;
 
-            $('a.smooth-scroll').each(function(i, item) {
-                var id = $(this).attr('href').replace(/^#/, ''),
-                    offset = $('#' + id).offset();
+        $('a.smooth-scroll').each(function(i, item) {
+            var id = $(this).attr('href').replace(/^#/, ''),
+                offset = $('#' + id).offset();
 
-                if (offset && Math.abs(scrollTop - offset.top) < closestDistance) {
-                    closestDistance = Math.abs(scrollTop - offset.top);
-                    closestId = id;
-                }
-            });
+            if (offset && Math.abs(scrollTop - offset.top) < closestDistance) {
+                closestDistance = Math.abs(scrollTop - offset.top);
+                closestId = id;
+            }
+        });
 
         if (closestId) {
             setActive($('.navbar li a[href="#' + closestId + '"]').parent());
         }
     });
 });
-
